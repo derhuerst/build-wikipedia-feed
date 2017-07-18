@@ -18,6 +18,8 @@
 		"node": ">=6"
 	},
 	"dependencies": {
+		"ndjson": "^1.5.0",
+		"xml-flow": "^1.0.1"
 	},
 	"devDependencies": {
 		"tape": "^4.6.3",
