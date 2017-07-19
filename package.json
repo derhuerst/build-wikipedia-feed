@@ -4,10 +4,12 @@
 	"version": "0.1.0",
 	"main": "index.js",
 	"bin": {
-		"build-revisions-list": "./build-revisions-list.js"
+		"build-revisions-list": "./build-revisions-list.js",
+		"store-revisions": "./store-revisions.js"
 	},
 	"files": [
 		"build-revisions-list.js",
+		"store-revisions.js",
 		"lib"
 	],
 	"keywords": [
@@ -27,8 +29,10 @@
 	},
 	"dependencies": {
 		"ansi-escapes": "^2.0.0",
+		"hyperdrive": "^9.4.7",
 		"ndjson": "^1.5.0",
 		"readable-stream": "^2.3.3",
+		"wikipedia-articles-feed": "derhuerst/wikipedia-articles-feed",
 		"xml-flow": "^1.0.1"
 	},
 	"devDependencies": {
