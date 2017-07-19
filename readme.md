@@ -17,8 +17,12 @@ npm install build-wikipedia-feed
 
 ## Usage
 
-```js
-todo
+This module exposes several command line building blocks.
+
+Pipe [a `stub-meta-history` XML file](https://dumps.wikimedia.org/enwiki/20170701/) into `build-revisions-list` to generate an [ndjson](http://ndjson.org) list of page revisions.
+
+```shell
+curl -s 'https://dumps.wikimedia.org/enwiki/20170701/enwiki-20170701-stub-meta-history.xml.gz' | gunzip | build-revisions-list >revisions.ndjson
 ```
 
 

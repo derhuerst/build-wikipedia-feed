@@ -1,5 +1,4 @@
 {
-	"private": true,
 	"name": "build-wikipedia-feed",
 	"description": "Build a hyperdrive feed of Wikipedia articles.",
 	"version": "0.1.0",
@@ -12,7 +11,11 @@
 		"lib"
 	],
 	"keywords": [
-		"wikipedia", "p2p", "hyperdrive", "hypercore", "dat"
+		"wikipedia",
+		"p2p",
+		"hyperdrive",
+		"hypercore",
+		"dat"
 	],
 	"author": "Jannis R <mail@jannisr.de>",
 	"homepage": "https://github.com/derhuerst/build-wikipedia-feed",
