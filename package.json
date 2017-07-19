@@ -4,8 +4,12 @@
 	"description": "Build a hyperdrive feed of Wikipedia articles.",
 	"version": "0.1.0",
 	"main": "index.js",
+	"bin": {
+		"build-revisions-list": "./build-revisions-list.js"
+	},
 	"files": [
-		"index.js"
+		"build-revisions-list.js",
+		"lib"
 	],
 	"keywords": [
 		"wikipedia", "p2p", "hyperdrive", "hypercore", "dat"
@@ -21,6 +25,7 @@
 	"dependencies": {
 		"ansi-escapes": "^2.0.0",
 		"ndjson": "^1.5.0",
+		"readable-stream": "^2.3.3",
 		"xml-flow": "^1.0.1"
 	},
 	"devDependencies": {
@@ -28,7 +33,6 @@
 		"tap-min": "^1.2.1"
 	},
 	"scripts": {
-		"build-revisions-list": "./build-revisions-list.sh",
 		"test": "node test.js | tap-min",
 		"prepublishOnly": "npm test"
 	}
