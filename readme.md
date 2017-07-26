@@ -21,17 +21,27 @@ This module exposes several command line building blocks.
 
 ### read article revisions to be fetched
 
-Pipe [a `stub-meta-history` XML file](https://dumps.wikimedia.org/enwiki/20170701/) into `build-revisions-list` to generate an [ndjson](http://ndjson.org) list of page revisions.
+**To get *all* revisions of every article, pipe [a `stub-meta-history` XML file](https://dumps.wikimedia.org/enwiki/20170701/)** into `build-revisions-list`.
 
 ```shell
 curl -s 'https://dumps.wikimedia.org/enwiki/20170701/enwiki-20170701-stub-meta-history.xml.gz' | gunzip | build-revisions-list >revisions.ndjson
 ```
 
-### fetch & store revisions
+To get *only the most recent* revision of every article instead, pipe [a `stub-meta-current`](https://dumps.wikimedia.org/enwiki/20170720/) file into `build-revisions-list`.
+
+```shell
+curl -s 'https://dumps.wikimedia.org/enwiki/20170720/enwiki-20170720-stub-meta-current.xml.gz' | gunzip | build-revisions-list >revisions.ndjson
+```
+
+You will get an [ndjson](http://ndjson.org) list of page revisions.
+
+### fetch & store revisions in a DB
 
 ```shell
 cat revisions.ndjson | env DB=path/to/hyperdrive store-revisions
 ```
+
+This will store the HTML content of the selected revisions in a [hyperdrive](https://github.com/mafintosh/hyperdrive).
 
 
 ## Contributing
