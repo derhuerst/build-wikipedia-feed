@@ -22,7 +22,7 @@ if (isatty(process.stderr.fd) && !isatty(process.stdout.fd)) {
 	clear = esc.eraseLine + esc.cursorTo(0)
 }
 const report = (slug, revId) => {
-	process.stderr.write(clear + slug + ' ' + revId)
+	process.stderr.write(clear + slug + ' @ ' + revId)
 }
 
 const drive = hyperdrive(DB)
