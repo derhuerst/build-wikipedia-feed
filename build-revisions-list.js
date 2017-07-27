@@ -5,7 +5,7 @@ const esc = require('ansi-escapes')
 const {isatty} = require('tty')
 const {stringify} = require('ndjson')
 
-const revisionsList = require('./lib/revisions-list')
+const parseDump = require('./lib/parse-dump')
 
 const showError = (err) => {
 	console.error(err)
@@ -20,7 +20,7 @@ const report = (pages, revisions) => {
 	process.stderr.write(clear + pages + ' pages, ' + revisions + ' revisions')
 }
 
-revisionsList(process.stdin, report, showError)
+parseDump(process.stdin, report, showError)
 .pipe(stringify())
 .on('error', showError)
 .pipe(process.stdout)
