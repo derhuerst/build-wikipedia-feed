@@ -5,10 +5,12 @@
 	"main": "index.js",
 	"bin": {
 		"build-revisions-list": "./build-revisions-list.js",
+		"live-revisions": "./live-revisions.js",
 		"store-revisions": "./store-revisions.js"
 	},
 	"files": [
 		"build-revisions-list.js",
+		"live-revisions.js",
 		"store-revisions.js",
 		"lib"
 	],
@@ -33,6 +35,7 @@
 		"ndjson": "^1.5.0",
 		"readable-stream": "^2.3.3",
 		"wikipedia-articles-feed": "derhuerst/wikipedia-articles-feed",
+		"wikipedia-edits-stream": "^0.1.0",
 		"xml-flow": "^1.0.1"
 	},
 	"devDependencies": {
