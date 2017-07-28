@@ -33,6 +33,12 @@ To get ***only the most recent* revision of every article** instead, pipe [a `st
 curl -s 'https://dumps.wikimedia.org/enwiki/20170720/enwiki-20170720-stub-meta-current.xml.gz' | gunzip | build-revisions-list >revisions.ndjson
 ```
 
+To get **articles being *edited right now***, use `live-revisions`.
+
+```shell
+live-revisions >revisions.ndjson
+```
+
 You will get an [ndjson](http://ndjson.org) list of page revisions.
 
 ### fetch & store revisions in a DB
