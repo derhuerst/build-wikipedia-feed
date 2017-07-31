@@ -42,7 +42,6 @@
 	},
 	"pkg": {
 		"targets": [
-			"latest-linux-x64",
 			"latest-macos-x64"
 		]
 	},
