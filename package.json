@@ -4,12 +4,12 @@
 	"version": "0.1.0",
 	"main": "index.js",
 	"bin": {
-		"build-revisions-list": "./build-revisions-list.js",
-		"live-revisions": "./live-revisions.js",
-		"store-revisions": "./store-revisions.js"
+		"wiki-revisions-list": "./revisions-list.js",
+		"wiki-live-revisions": "./live-revisions.js",
+		"wiki-store-revisions": "./store-revisions.js"
 	},
 	"files": [
-		"build-revisions-list.js",
+		"revisions-list.js",
 		"live-revisions.js",
 		"store-revisions.js",
 		"lib"

@@ -11,7 +11,7 @@
 ## Installing
 
 ```shell
-npm install build-wikipedia-feed
+npm install -g build-wikipedia-feed
 ```
 
 
@@ -21,34 +21,34 @@ This module exposes several command line building blocks.
 
 ### read *all* revisions of every article
 
-Pipe [a `stub-meta-history` XML file](https://dumps.wikimedia.org/enwiki/20170701/) into `build-revisions-list`. You will get an [ndjson](http://ndjson.org) list of page revisions.
+Pipe [a `stub-meta-history` XML file](https://dumps.wikimedia.org/enwiki/20170701/) into `wiki-revisions-list`. You will get an [ndjson](http://ndjson.org) list of page revisions.
 
 ```shell
-curl -s 'https://dumps.wikimedia.org/enwiki/20170701/enwiki-20170701-stub-meta-history.xml.gz' | gunzip | build-revisions-list >revisions.ndjson
+curl -s 'https://dumps.wikimedia.org/enwiki/20170701/enwiki-20170701-stub-meta-history.xml.gz' | gunzip | wiki-revisions-list >revisions.ndjson
 ```
 
 ### read the *most recent* revision of every article
 
-Pipe [a `stub-meta-current` XML file](https://dumps.wikimedia.org/enwiki/20170720/) file into `build-revisions-list`. You will get an [ndjson](http://ndjson.org) list of page revisions.
+Pipe [a `stub-meta-current` XML file](https://dumps.wikimedia.org/enwiki/20170720/) file into `wiki-revisions-list`. You will get an [ndjson](http://ndjson.org) list of page revisions.
 
 ```shell
-curl -s 'https://dumps.wikimedia.org/enwiki/20170720/enwiki-20170720-stub-meta-current.xml.gz' | gunzip | build-revisions-list >revisions.ndjson
+curl -s 'https://dumps.wikimedia.org/enwiki/20170720/enwiki-20170720-stub-meta-current.xml.gz' | gunzip | wiki-revisions-list >revisions.ndjson
 ```
 
-## read articles being *edited right now*
+### read articles being *edited right now*
 
-Use `live-revisions`. You will get an [ndjson](http://ndjson.org) list of page revisions.
+Use `wiki-live-revisions`. You will get an [ndjson](http://ndjson.org) list of page revisions.
 
 ```shell
-live-revisions >revisions.ndjson
+wiki-live-revisions >revisions.ndjson
 ```
 
 ### fetch & store revisions in a [hyperdrive](https://github.com/mafintosh/hyperdrive)
 
-This will write the HTML content of all revisions in `revisions.ndjson` into a [hyperdrive](https://github.com/mafintosh/hyperdrive).
+Use `wiki-store-revisions` to write the HTML content of all revisions in `revisions.ndjson` into a [hyperdrive](https://github.com/mafintosh/hyperdrive).
 
 ```shell
-cat revisions.ndjson | env DB=path/to/hyperdrive store-revisions
+cat revisions.ndjson | env DB=path/to/hyperdrive wiki-store-revisions
 ```
 
 
