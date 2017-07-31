@@ -39,13 +39,5 @@
 		"wikipedia-articles-feed": "derhuerst/wikipedia-articles-feed",
 		"wikipedia-edits-stream": "^0.1.0",
 		"xml-flow": "^1.0.1"
-	},
-	"devDependencies": {
-		"tape": "^4.6.3",
-		"tap-min": "^1.2.1"
-	},
-	"scripts": {
-		"test": "node test.js | tap-min",
-		"prepublishOnly": "npm test"
 	}
 }
