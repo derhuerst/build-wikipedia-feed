@@ -19,35 +19,37 @@ npm install build-wikipedia-feed
 
 This module exposes several command line building blocks.
 
-### read article revisions to be fetched
+### read *all* revisions of every article
 
-To get ***all* revisions of every article**, pipe [a `stub-meta-history` XML file](https://dumps.wikimedia.org/enwiki/20170701/) into `build-revisions-list`.
+Pipe [a `stub-meta-history` XML file](https://dumps.wikimedia.org/enwiki/20170701/) into `build-revisions-list`. You will get an [ndjson](http://ndjson.org) list of page revisions.
 
 ```shell
 curl -s 'https://dumps.wikimedia.org/enwiki/20170701/enwiki-20170701-stub-meta-history.xml.gz' | gunzip | build-revisions-list >revisions.ndjson
 ```
 
-To get ***only the most recent* revision of every article** instead, pipe [a `stub-meta-current`](https://dumps.wikimedia.org/enwiki/20170720/) file into `build-revisions-list`.
+### read the *most recent* revision of every article
+
+Pipe [a `stub-meta-current` XML file](https://dumps.wikimedia.org/enwiki/20170720/) file into `build-revisions-list`. You will get an [ndjson](http://ndjson.org) list of page revisions.
 
 ```shell
 curl -s 'https://dumps.wikimedia.org/enwiki/20170720/enwiki-20170720-stub-meta-current.xml.gz' | gunzip | build-revisions-list >revisions.ndjson
 ```
 
-To get **articles being *edited right now***, use `live-revisions`.
+## read articles being *edited right now*
+
+Use `live-revisions`. You will get an [ndjson](http://ndjson.org) list of page revisions.
 
 ```shell
 live-revisions >revisions.ndjson
 ```
 
-You will get an [ndjson](http://ndjson.org) list of page revisions.
+### fetch & store revisions in a [hyperdrive](https://github.com/mafintosh/hyperdrive)
 
-### fetch & store revisions in a DB
+This will write the HTML content of all revisions in `revisions.ndjson` into a [hyperdrive](https://github.com/mafintosh/hyperdrive).
 
 ```shell
 cat revisions.ndjson | env DB=path/to/hyperdrive store-revisions
 ```
-
-This will store the HTML content of the selected revisions in a [hyperdrive](https://github.com/mafintosh/hyperdrive).
 
 
 ## Contributing
