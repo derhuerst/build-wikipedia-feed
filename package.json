@@ -40,15 +40,10 @@
 		"wikipedia-edits-stream": "^0.1.0",
 		"xml-flow": "^1.0.1"
 	},
-	"pkg": {
-		"targets": [
-			"latest-macos-x64"
-		]
-	},
 	"scripts": {
-		"build-revisions-list": "pkg -c package.json --public revisions-list.js -o dist/wiki-revisions-list",
-		"build-live-revisions": "pkg -c package.json --public live-revisions.js -o dist/wiki-live-revisions",
-		"build-store-revisions": "pkg -c package.json --public store-revisions.js -o dist/wiki-store-revisions",
+		"build-revisions-list": "pkg -t latest-macos-x64 --public revisions-list.js -o dist/wiki-revisions-list",
+		"build-live-revisions": "pkg -t latest-macos-x64 --public live-revisions.js -o dist/wiki-live-revisions",
+		"build-store-revisions": "pkg -t latest-macos-x64 --public store-revisions.js -o dist/wiki-store-revisions",
 		"build": "npm run build-revisions-list && npm run build-live-revisions && npm run build-store-revisions"
 	},
 	"devDependencies": {
