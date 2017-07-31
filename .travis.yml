@@ -2,8 +2,10 @@ sudo: false
 language: node_js
 node_js:
   - 'stable'
+install:
+  - travis_wait mvn install
 script:
-  - npm run build
+  - travis_wait 40 npm run build
 after_script:
   - ls -lh dist/*
 deploy:
