@@ -1,10 +1,13 @@
 #!/usr/bin/env node
 'use strict'
 
+const mkdirp = require('mkdirp')
+const path = require('path')
+const envPaths = require('env-paths')
 const esc = require('ansi-escapes')
 const {isatty} = require('tty')
 const {parse} = require('ndjson')
-const hyperdrive = require('hyperdrive')
+const openDat = require('dat-node')
 
 const fetchRevisions = require('./lib/fetch-revisions')
 const writeToHyperdrive = require('./lib/write-to-hyperdrive')
@@ -14,8 +17,9 @@ const showError = (err) => {
 	process.exit(1)
 }
 
-const DB = process.env.DB
-if (!DB) showError('Missing DB env var.')
+const dir = envPaths('p2p-wiki', {suffix: ''}).data
+mkdirp.sync(dir)
+const db = path.join(dir, 'db')
 
 let clear = '\n'
 if (isatty(process.stderr.fd) && !isatty(process.stdout.fd)) {
@@ -25,14 +29,22 @@ const report = (slug, revId) => {
 	process.stderr.write(clear + slug + ' @ ' + revId)
 }
 
-const drive = hyperdrive(DB)
-const sink = writeToHyperdrive(drive)
+openDat(db, (err, dat) => {
+	if (err) return showError(err)
+	console.error('dat', dat.path, dat.key.toString('hex'))
 
-process.stdin
-.on('error', showError)
-.pipe(parse())
-.on('error', showError)
-.pipe(fetchRevisions)
-.on('error', showError)
-.pipe(sink)
-.on('error', showError)
+	const sink = writeToHyperdrive(dat.archive)
+
+	process.stdin
+	.on('error', showError)
+	.pipe(parse())
+	.on('error', showError)
+	.pipe(fetchRevisions)
+	.on('error', showError)
+	.pipe(sink)
+	.on('error', showError)
+
+	process.once('exit', () => {
+		dat.close()
+	})
+})

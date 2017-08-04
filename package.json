@@ -1,6 +1,6 @@
 {
 	"name": "build-wikipedia-feed",
-	"description": "Build a hyperdrive feed of Wikipedia articles.",
+	"description": "Build a dat archive of Wikipedia articles.",
 	"version": "0.1.0",
 	"main": "index.js",
 	"bin": {
@@ -31,8 +31,10 @@
 	},
 	"dependencies": {
 		"ansi-escapes": "^2.0.0",
+		"dat-node": "^3.5.1",
+		"env-paths": "^1.0.0",
 		"fetch-wikipedia-page-revision": "^0.1.0",
-		"hyperdrive": "^9.4.7",
+		"mkdirp": "^0.5.1",
 		"ndjson": "^1.5.0",
 		"readable-stream": "^2.3.3",
 		"through2-concurrent": "^1.1.1",

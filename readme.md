@@ -1,6 +1,6 @@
 # build-wikipedia-feed
 
-**Build a [hyperdrive](https://github.com/mafintosh/hyperdrive) feed of Wikipedia articles**, including historical revisions.
+**Build a [dat archive](https://datproject.org) feed of Wikipedia articles**, including historical revisions.
 
 [![npm version](https://img.shields.io/npm/v/build-wikipedia-feed.svg)](https://www.npmjs.com/package/build-wikipedia-feed)
 [![build status](https://img.shields.io/travis/derhuerst/build-wikipedia-feed.svg)](https://travis-ci.org/derhuerst/build-wikipedia-feed)
@@ -43,12 +43,12 @@ Use `wiki-live-revisions`. You will get an [ndjson](http://ndjson.org) list of p
 wiki-live-revisions >revisions.ndjson
 ```
 
-### fetch & store revisions in a [hyperdrive](https://github.com/mafintosh/hyperdrive)
+### fetch & store revisions in a [dat archive](https://datproject.org)
 
-Use `wiki-store-revisions` to write the HTML content of all revisions in `revisions.ndjson` into a [hyperdrive](https://github.com/mafintosh/hyperdrive).
+Use `wiki-store-revisions` to write the HTML content of all revisions in `revisions.ndjson` into a [dat archive](https://datproject.org). The archive will be created under `p2p-wiki` in [your system's data directory](https://github.com/sindresorhus/env-paths#usage).
 
 ```shell
-cat revisions.ndjson | env DB=path/to/hyperdrive wiki-store-revisions
+cat revisions.ndjson | wiki-store-revisions
 ```
 
 
