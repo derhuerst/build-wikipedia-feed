@@ -37,6 +37,7 @@
 		"mkdirp": "^0.5.1",
 		"ndjson": "^1.5.0",
 		"readable-stream": "^2.3.3",
+		"slug": "^0.9.1",
 		"through2-concurrent": "^1.1.1",
 		"wikipedia-articles-feed": "derhuerst/wikipedia-articles-feed",
 		"wikipedia-edits-stream": "^0.1.0",
