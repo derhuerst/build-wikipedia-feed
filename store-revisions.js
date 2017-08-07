@@ -29,7 +29,12 @@ const report = (slug, revId) => {
 	process.stderr.write(clear + slug + ' @ ' + revId)
 }
 
-openDat(db, (err, dat) => {
+let concurrency = process.env.CONCURRENCY
+if (!concurrency || Number.isNaN(concurrency = parseInt(concurrency))) {
+	concurrency = 4
+}
+
+openDat(db, {indexing: false}, (err, dat) => {
 	if (err) return showError(err)
 	console.error('dat', dat.path, dat.key.toString('hex'))
 
@@ -39,7 +44,7 @@ openDat(db, (err, dat) => {
 	.on('error', showError)
 	.pipe(parse())
 	.on('error', showError)
-	.pipe(fetchRevisions)
+	.pipe(fetchRevisions(concurrency))
 	.on('error', showError)
 	.pipe(sink)
 	.on('error', showError)
