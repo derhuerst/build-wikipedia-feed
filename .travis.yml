@@ -1,0 +1,16 @@
+sudo: false
+language: node_js
+node_js:
+  - 'stable'
+script:
+  - travis_wait 40 npm run build
+after_script:
+  - ls -lh dist/*
+deploy:
+  provider: releases
+  skip_cleanup: true
+  api_key: $GITHUB_TOKEN
+  on:
+    branch: master
+  file: dist/*
+  file_glob: true
