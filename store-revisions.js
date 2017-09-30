@@ -36,7 +36,19 @@ if (!concurrency || Number.isNaN(concurrency = parseInt(concurrency))) {
 
 openDat(db, {indexing: false}, (err, dat) => {
 	if (err) return showError(err)
-	console.error('dat', dat.path, dat.key.toString('hex'))
+	const keyAsHex = dat.key.toString('hex')
+	console.error('dat', dat.path, keyAsHex)
+
+	if (!dat.resumed) {
+		const data = JSON.stringify({
+			url: `dat://${keyAsHex}/`,
+			title: 'Wikipedia',
+			description: 'A Wikipedia dump.'
+		})
+		dat.archive.writeFile('dat.json', data, (err) => {
+			if (err) showError(err)
+		})
+	}
 
 	const sink = writeToHyperdrive(dat.archive)
 
