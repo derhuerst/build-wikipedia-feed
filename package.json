@@ -31,6 +31,7 @@
 	},
 	"dependencies": {
 		"ansi-escapes": "^2.0.0",
+		"async": "^2.5.0",
 		"dat-node": "^3.5.1",
 		"env-paths": "^1.0.0",
 		"fetch-wikipedia-page-revision": "^0.1.0",

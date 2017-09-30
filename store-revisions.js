@@ -12,6 +12,8 @@ const openDat = require('dat-node')
 const fetchRevisions = require('./lib/fetch-revisions')
 const writeToHyperdrive = require('./lib/write-to-hyperdrive')
 
+const FEED_VERSION = 1
+
 const showError = (err) => {
 	console.error(err)
 	process.exit(1)
@@ -40,12 +42,20 @@ openDat(db, {indexing: false}, (err, dat) => {
 	console.error('dat', dat.path, keyAsHex)
 
 	if (!dat.resumed) {
-		const data = JSON.stringify({
+		const datMeta = JSON.stringify({
 			url: `dat://${keyAsHex}/`,
 			title: 'Wikipedia',
 			description: 'A Wikipedia dump.'
 		})
-		dat.archive.writeFile('dat.json', data, (err) => {
+		dat.archive.writeFile('dat.json', datMeta, (err) => {
+			if (err) showError(err)
+		})
+
+		const wikiMeta = JSON.stringify({
+			version: FEED_VERSION,
+			wiki: 'enwiki'
+		})
+		dat.archive.writeFile('wiki.json', wikiMeta, (err) => {
 			if (err) showError(err)
 		})
 	}
