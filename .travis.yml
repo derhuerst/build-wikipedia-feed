@@ -8,6 +8,7 @@ after_script:
   - ls -lh dist/*
 deploy:
   provider: releases
+  name: 'prebuilt build-wikipedia-feed'
   skip_cleanup: true
   api_key: $GITHUB_TOKEN
   on:
