@@ -8,6 +8,22 @@
 [![chat on gitter](https://badges.gitter.im/derhuerst.svg)](https://gitter.im/derhuerst)
 
 
+## Rationale
+
+### Problem
+
+[Wikipedia](https://en.wikipedia.org/wiki/Wikipedia) is an incredibly important collection of knowledge on the internet. It is free to read and edit for everyone. Though, it is important to know that **it is stored on only a handful of servers in a handful of countries controlled by a single organisation**. This mainly causes two problems:
+
+- Currently, it is **too easy to censor** the Wikipedia. We need a system that supports redundancy without any additional effort.
+- It **does not work offline**. Making an offline copy is complicated. Also, you usually have to download all articles for a language.
+
+### Solution
+
+Let's **store Wikipedia's content in a [peer-to-peer (P2P) system](https://en.wikipedia.org/wiki/Peer-to-peer)**. By leveraging software from [the *Dat* project](https://docs.datproject.org), we won't have to reinvent the wheel. [The *Dat* protocol](https://github.com/datproject/docs/blob/master/papers/dat-paper.pdf) efficiently only syncs changes between to versions of data, allows for sparse & live replication and is completely [distributed](https://en.wikipedia.org/wiki/Peer-to-peer#Unstructured_networks).
+
+This tool can extract articles from a [Wikipedia dump](https://dumps.wikimedia.org/enwiki) or download it directly, and store it in a *Dat* archive. See below for more details.
+
+
 ## Installing
 
 ```shell
