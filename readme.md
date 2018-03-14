@@ -6,6 +6,7 @@
 [![build status](https://img.shields.io/travis/derhuerst/build-wikipedia-feed.svg)](https://travis-ci.org/derhuerst/build-wikipedia-feed)
 ![ISC-licensed](https://img.shields.io/github/license/derhuerst/build-wikipedia-feed.svg)
 [![chat on gitter](https://badges.gitter.im/derhuerst.svg)](https://gitter.im/derhuerst)
+[![support me on Patreon](https://img.shields.io/badge/support%20me-on%20patreon-fa7664.svg)](https://patreon.com/derhuerst)
 
 
 ## Rationale
@@ -66,6 +67,15 @@ Use `wiki-store-revisions` to write the HTML content of all revisions in `revisi
 ```shell
 cat revisions.ndjson | wiki-store-revisions
 ```
+
+
+## Related
+
+- [distributed-wikipedia-mirror](https://github.com/ipfs/distributed-wikipedia-mirror) – Putting wikipedia on IPFS
+- [`fetch-wikipedia-page-revision`](https://github.com/derhuerst/fetch-wikipedia-page-revision#fetch-wikipedia-page-revision) – Fetch a revision of a Wikipedia page as mobile HTML.
+- [`wikipedia-edits-stream`](https://github.com/derhuerst/wikipedia-edits-stream#wikipedia-edits-stream) – A live stream of page edits on Wikipedia.
+- [`commons-photo-url`](https://github.com/derhuerst/commons-photo-url#commons-photo-url) – Download Wikimedia Commons photos.
+- [`wiki-article-name-encoding`](https://github.com/derhuerst/wiki-article-name-encoding#wiki-article-name-encoding) – Encode & decode Wiki(pedia) article names/slugs.
 
 
 ## Contributing
