@@ -7,12 +7,12 @@ const envPaths = require('env-paths')
 const esc = require('ansi-escapes')
 const {isatty} = require('tty')
 const {parse} = require('ndjson')
-const openDat = require('dat-node')
+const hyperdb = require('hyperdb')
 
 const fetchRevisions = require('./lib/fetch-revisions')
-const writeToHyperdrive = require('./lib/write-to-hyperdrive')
+const writeToHyperdb = require('./lib/write-to-hyperdb')
 
-const FEED_VERSION = 1
+const FEED_VERSION = 2
 
 const showError = (err) => {
 	console.error(err)
@@ -21,7 +21,7 @@ const showError = (err) => {
 
 const dir = envPaths('p2p-wiki', {suffix: ''}).data
 mkdirp.sync(dir)
-const db = path.join(dir, 'db')
+const dbPath = path.join(dir, 'db')
 
 let clear = '\n'
 if (isatty(process.stderr.fd) && !isatty(process.stdout.fd)) {
@@ -36,31 +36,23 @@ if (!concurrency || Number.isNaN(concurrency = parseInt(concurrency))) {
 	concurrency = 4
 }
 
-openDat(db, {indexing: false}, (err, dat) => {
+const db = hyperdb(dbPath)
+db.ready((err) => {
 	if (err) return showError(err)
-	const keyAsHex = dat.key.toString('hex')
-	console.error('dat', dat.path, keyAsHex)
+	const keyAsHex = db.key.toString('hex')
+	console.info(dbPath, keyAsHex)
 
-	if (!dat.resumed) {
-		const datMeta = JSON.stringify({
-			url: `dat://${keyAsHex}/`,
-			title: 'Wikipedia',
-			description: 'A Wikipedia dump.'
-		})
-		dat.archive.writeFile('dat.json', datMeta, (err) => {
-			if (err) showError(err)
-		})
-
+	if (!db.resumed) {
 		const wikiMeta = JSON.stringify({
 			version: FEED_VERSION,
 			wiki: 'enwiki'
 		})
-		dat.archive.writeFile('wiki.json', wikiMeta, (err) => {
+		db.put('/wiki.json', wikiMeta, (err) => {
 			if (err) showError(err)
 		})
 	}
 
-	const sink = writeToHyperdrive(dat.archive)
+	const sink = writeToHyperdb(db)
 
 	process.stdin
 	.on('error', showError)
@@ -72,6 +64,6 @@ openDat(db, {indexing: false}, (err, dat) => {
 	.on('error', showError)
 
 	process.once('exit', () => {
-		dat.close()
+		db.close()
 	})
 })
