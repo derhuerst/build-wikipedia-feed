@@ -1,7 +1,7 @@
 {
 	"name": "build-wikipedia-feed",
 	"description": "Build a hyperdb of Wikipedia articles.",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"main": "index.js",
 	"bin": {
 		"wiki-revisions-list": "./revisions-list.js",
@@ -29,7 +29,7 @@
 		"node": ">=6"
 	},
 	"dependencies": {
-		"ansi-escapes": "^2.0.0",
+		"ansi-escapes": "^3.1.0",
 		"async": "^2.5.0",
 		"env-paths": "^1.0.0",
 		"fetch-wikipedia-page-revision": "^0.1.0",
