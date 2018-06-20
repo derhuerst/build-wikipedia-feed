@@ -36,7 +36,6 @@
 		"hyperdb": "^3.0.0-2",
 		"mkdirp": "^0.5.1",
 		"ndjson": "^1.5.0",
-		"readable-stream": "^2.3.3",
 		"through2": "^2.0.3",
 		"through2-concurrent": "^1.1.1",
 		"wiki-article-name-encoding": "^0.1.0",
