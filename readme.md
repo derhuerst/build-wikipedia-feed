@@ -38,18 +38,18 @@ This module exposes several command line building blocks.
 
 ### read *all* revisions of every article
 
-Pipe [a `stub-meta-history` XML file](https://dumps.wikimedia.org/enwiki/20170701/) into `wiki-revisions-list`. You will get an [ndjson](http://ndjson.org) list of page revisions.
+Pipe [a `stub-meta-history*` XML file](https://dumps.wikimedia.org/enwiki/) into `wiki-revisions-list`. You will get an [ndjson](http://ndjson.org) list of page revisions.
 
 ```shell
-curl -s 'https://dumps.wikimedia.org/enwiki/20170701/enwiki-20170701-stub-meta-history.xml.gz' | gunzip | wiki-revisions-list >revisions.ndjson
+curl -s 'https://dumps.wikimedia.org/enwiki/20181001/enwiki-20181001-stub-meta-history1.xml.gz' | gunzip | wiki-revisions-list >revisions.ndjson
 ```
 
 ### read the *most recent* revision of every article
 
-Pipe [a `stub-meta-current` XML file](https://dumps.wikimedia.org/enwiki/20170720/) file into `wiki-revisions-list`. You will get an [ndjson](http://ndjson.org) list of page revisions.
+Pipe [a `stub-meta-current*` XML file](https://dumps.wikimedia.org/enwiki/) file into `wiki-revisions-list`. You will get an [ndjson](http://ndjson.org) list of page revisions.
 
 ```shell
-curl -s 'https://dumps.wikimedia.org/enwiki/20170720/enwiki-20170720-stub-meta-current.xml.gz' | gunzip | wiki-revisions-list >revisions.ndjson
+curl -s 'https://dumps.wikimedia.org/enwiki/20181001/enwiki-20181001-stub-meta-current1.xml.gz' | gunzip | wiki-revisions-list >revisions.ndjson
 ```
 
 ### read articles being *edited right now*
