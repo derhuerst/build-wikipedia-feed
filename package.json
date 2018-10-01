@@ -33,7 +33,7 @@
 		"async": "^2.5.0",
 		"env-paths": "^1.0.0",
 		"fetch-wikipedia-page-revision": "^0.1.0",
-		"hyperdb": "^3.0.0-2",
+		"hyperdb": "^3.5.0",
 		"mkdirp": "^0.5.1",
 		"ndjson": "^1.5.0",
 		"through2": "^2.0.3",
