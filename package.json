@@ -1,7 +1,7 @@
 {
 	"name": "build-wikipedia-feed",
 	"description": "Build a hyperdb of Wikipedia articles.",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"main": "index.js",
 	"bin": {
 		"wiki-revisions-list": "./revisions-list.js",
@@ -39,7 +39,7 @@
 		"through2": "^2.0.3",
 		"through2-concurrent": "^1.1.1",
 		"wiki-article-name-encoding": "^0.1.0",
-		"wikipedia-articles-feed": "derhuerst/wikipedia-articles-feed",
+		"wikipedia-articles-feed": "github:derhuerst/wikipedia-articles-feed",
 		"wikipedia-edits-stream": "^0.1.0",
 		"xml-flow": "^1.0.1"
 	},

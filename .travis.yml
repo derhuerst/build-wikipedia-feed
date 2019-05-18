@@ -1,7 +1,6 @@
-sudo: false
 language: node_js
 node_js:
-  - 'stable'
+  - 'lts/*'
 script:
   - travis_wait 40 npm run build
 after_script:
