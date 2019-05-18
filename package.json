@@ -26,18 +26,18 @@
 	"bugs": "https://github.com/derhuerst/build-wikipedia-feed/issues",
 	"license": "ISC",
 	"engines": {
-		"node": ">=6"
+		"node": ">=8"
 	},
 	"dependencies": {
-		"ansi-escapes": "^3.1.0",
+		"ansi-escapes": "^4.1.0",
 		"async": "^2.5.0",
-		"env-paths": "^1.0.0",
+		"env-paths": "^2.2.0",
 		"fetch-wikipedia-page-revision": "^0.1.0",
 		"hyperdrive": "^10.0.0-rc3",
 		"mkdirp": "^0.5.1",
 		"ndjson": "^1.5.0",
-		"through2": "^2.0.3",
-		"through2-concurrent": "^1.1.1",
+		"through2": "^3.0.1",
+		"through2-concurrent": "^2.0.0",
 		"wiki-article-name-encoding": "^0.1.0",
 		"wikipedia-articles-feed": "github:derhuerst/wikipedia-articles-feed",
 		"wikipedia-edits-stream": "^0.1.0",
