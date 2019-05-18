@@ -7,10 +7,10 @@ const envPaths = require('env-paths')
 const esc = require('ansi-escapes')
 const {isatty} = require('tty')
 const {parse} = require('ndjson')
-const hyperdb = require('hyperdb')
+const hyperdrive = require('hyperdrive')
 
 const fetchRevisions = require('./lib/fetch-revisions')
-const writeToHyperdb = require('./lib/write-to-hyperdb')
+const writeToHyperdrive = require('./lib/write-to-hyperdrive')
 
 const FEED_VERSION = 2
 
@@ -36,7 +36,7 @@ if (!concurrency || Number.isNaN(concurrency = parseInt(concurrency))) {
 	concurrency = 4
 }
 
-const db = hyperdb(dbPath)
+const db = hyperdrive(dbPath)
 db.ready((err) => {
 	if (err) return showError(err)
 	const keyAsHex = db.key.toString('hex')
@@ -47,12 +47,12 @@ db.ready((err) => {
 			version: FEED_VERSION,
 			wiki: 'enwiki'
 		})
-		db.put('/wiki.json', wikiMeta, (err) => {
+		db.writeFile('/wiki.json', wikiMeta, (err) => {
 			if (err) showError(err)
 		})
 	}
 
-	const sink = writeToHyperdb(db)
+	const sink = writeToHyperdrive(db)
 
 	process.stdin
 	.on('error', showError)

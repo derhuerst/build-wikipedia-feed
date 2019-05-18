@@ -1,6 +1,6 @@
 # build-wikipedia-feed
 
-**Build a [hyperdb](https://npmjs.com/package/hyperdb) feed of Wikipedia articles**, including historical revisions.
+**Build a [hyperdrive](https://npmjs.com/package/hyperdrive) feed of Wikipedia articles**, including historical revisions.
 
 [![npm version](https://img.shields.io/npm/v/build-wikipedia-feed.svg)](https://www.npmjs.com/package/build-wikipedia-feed)
 [![build status](https://img.shields.io/travis/derhuerst/build-wikipedia-feed.svg)](https://travis-ci.org/derhuerst/build-wikipedia-feed)
@@ -60,9 +60,9 @@ Use `wiki-live-revisions`. You will get an [ndjson](http://ndjson.org) list of p
 wiki-live-revisions >revisions.ndjson
 ```
 
-### fetch & store revisions in a [hyperdb](https://npmjs.com/package/hyperdb)
+### fetch & store revisions in a [hyperdrive](https://npmjs.com/package/hyperdrive)
 
-Use `wiki-store-revisions` to write the HTML content of all revisions in `revisions.ndjson` into a [hyperdb](https://npmjs.com/package/hyperdb). The archive will be created under `p2p-wiki` in [your system's data directory](https://github.com/sindresorhus/env-paths#usage).
+Use `wiki-store-revisions` to write the HTML content of all revisions in `revisions.ndjson` into a [hyperdrive](https://npmjs.com/package/hyperdrive). The archive will be created under `p2p-wiki` in [your system's data directory](https://github.com/sindresorhus/env-paths#usage).
 
 ```shell
 cat revisions.ndjson | wiki-store-revisions

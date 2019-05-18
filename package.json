@@ -1,6 +1,6 @@
 {
 	"name": "build-wikipedia-feed",
-	"description": "Build a hyperdb of Wikipedia articles.",
+	"description": "Build a hyperdrive of Wikipedia articles.",
 	"version": "0.1.2",
 	"main": "index.js",
 	"bin": {
@@ -18,7 +18,7 @@
 		"wikipedia",
 		"p2p",
 		"hypercore",
-		"hyperdb"
+		"hyperdrive"
 	],
 	"author": "Jannis R <mail@jannisr.de>",
 	"homepage": "https://github.com/derhuerst/build-wikipedia-feed",
@@ -33,7 +33,7 @@
 		"async": "^2.5.0",
 		"env-paths": "^1.0.0",
 		"fetch-wikipedia-page-revision": "^0.1.0",
-		"hyperdb": "^3.5.0",
+		"hyperdrive": "^10.0.0-rc3",
 		"mkdirp": "^0.5.1",
 		"ndjson": "^1.5.0",
 		"through2": "^2.0.3",
