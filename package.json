@@ -30,7 +30,7 @@
 	},
 	"dependencies": {
 		"ansi-escapes": "^4.1.0",
-		"async": "^2.5.0",
+		"async": "^3.2.2",
 		"env-paths": "^2.2.0",
 		"fetch-wikipedia-page-revision": "^0.1.0",
 		"hyperdrive": "^10.0.0-rc3",
